@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_MindWave.Views.ContentPages.PhoneEnterPage"
+             Title="PhoneEnterPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="480"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <VerticalStackLayout Grid.Row="1"
+                                 Margin="32,16"
+                                 Spacing="32">
+                <Label Text="Введите номер телефона"
+                       TextColor="White"
+                       HorizontalOptions="Start"
+                       LineBreakMode="WordWrap"
+                       FontSize="28"
+                       FontFamily="Inter-SemiBold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                    </Label.Shadow>
+                </Label>
+                <Border StrokeShape="RoundRectangle 8"
+                        StrokeThickness="0" 
+                        BackgroundColor="#BFFFFFFF"
+                        x:Name="phoneBorder">
+                    <Entry Placeholder="7 999 999 99 99"
+                           PlaceholderColor="Gray"
+                           FontSize="18"
+                           FontFamily="Inter-Medium"
+                           Margin="16,0"
+                           CharacterSpacing="1.5"
+                           TextColor="Black"
+                           Completed="Entry_Completed"
+                           x:Name="phoneEnter"
+                           MaxLength="11"
+                           ReturnType="Done"></Entry>
+                </Border>
+                <ActivityIndicator x:Name="loadingIndicator"
+                                   Color="White"
+                                   WidthRequest="48"
+                                   HeightRequest="48"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"></ActivityIndicator>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

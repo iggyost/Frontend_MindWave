@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_MindWave.Views.ContentPages.TestPage"
+             Title="TestPage"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Border Margin="16" 
+                    BackgroundColor="#FFE8F4"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 16"
+                    HeightRequest="512"
+                    x:Name="infoBorder">
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"
+                            Radius="4"></Shadow>
+                </Border.Shadow>
+                <Grid x:Name="mainGrid">
+                    <Grid x:Name="titleGrid"
+                      IsVisible="False">
+                        <VerticalStackLayout Margin="16"
+                                             Spacing="16">
+                            <HorizontalStackLayout Spacing="16">
+                                <ImageButton HeightRequest="28"
+                                             WidthRequest="28"
+                                             HorizontalOptions="Start"
+                                             Source="back_icon.png"
+                                             Aspect="AspectFill"
+                                             x:Name="backBtn"
+                                             Clicked="backBtn_Clicked"></ImageButton>
+                                <Label TextColor="#FF5D81"
+                                       WidthRequest="268"
+                                       x:Name="nameLabel"
+                                       HorizontalOptions="Center"
+                                       FontSize="24"
+                                       FontFamily="Inter-SemiBold"
+                                       LineBreakMode="WordWrap">
+                                    <Label.Shadow>
+                                        <Shadow Opacity="0.2"
+                                                Radius="5"></Shadow>
+                                    </Label.Shadow>
+                                </Label>
+                            </HorizontalStackLayout>
+                            <VerticalStackLayout Spacing="24">
+                                <Label x:Name="descLabel"
+                                   TextColor="#FF5D81"
+                                   FontSize="16"
+                                   FontFamily="Inter-SemiBold"
+                                   LineBreakMode="WordWrap"></Label>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                                <Label x:Name="recsLabel"
+                                       VerticalOptions="End"
+                                       Margin="16,0,0,86"
+                                       Text="Не торопитесь с ответами, внимательно подумайте перед тем, как выбрать правильный вариант. Читайте внимательно. Внимательно изучите каждый вопрос, прежде чем давать ответ, чтобы убедиться, что вы правильно поняли его."
+                                   TextColor="#008CFF"
+                                   FontSize="12"
+                                   FontFamily="Inter-Regular"
+                                   LineBreakMode="WordWrap"></Label>
+                        <Button HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                Margin="0,16"
+                                Padding="48,12"
+                                FontSize="15"
+                                FontFamily="Inter-Bold"
+                                Text="Приступить к тесту"
+                                BackgroundColor="#FF5D81"
+                                x:Name="startBtn"
+                                Clicked="startBtn_Clicked">
+                            <Button.Shadow>
+                                <Shadow Opacity="0.4"
+                                        Radius="5"></Shadow>
+                            </Button.Shadow>
+                        </Button>
+                    </Grid>
+                    <Grid x:Name="testGrid"
+                          Margin="16">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="86"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--<Button x:Name="previewQuestion"
+                                        Clicked="previewQuestion_Clicked"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Text="←"
+                                        BackgroundColor="#FF5D81"></Button>-->
+                                <Label x:Name="questionLabel"
+                                       FontSize="16"
+                                       FontFamily="Inter-SemiBold"
+                                       LineBreakMode="WordWrap"
+                                       Grid.Column="1"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                    <Label.Shadow>
+                                        <Shadow Opacity="0.2"
+                                                Radius="5"></Shadow>
+                                    </Label.Shadow>
+                                </Label>
+                                <ActivityIndicator x:Name="loadingQuestionIndicator"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   WidthRequest="32"
+                                                   HeightRequest="32"
+                                                   Color="#FF5D81"></ActivityIndicator>
+                                <Button x:Name="nextQuestion"
+                                        Clicked="nextQuestion_Clicked"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Grid.Column="2"
+                                        FontSize="18"
+                                        Text="→"
+                                        BackgroundColor="#FF5D81"></Button>
+                            </Grid>
+                            <CollectionView x:Name="answerCollectionView"
+                                            Grid.Row="1">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <VerticalStackLayout Spacing="8">
+                                            <RadioButton BorderColor="#FF5D81"
+                                                         Content="{Binding Answer}"
+                                                         AutomationId="{Binding TestAnswerId}"
+                                                         GroupName="answer"
+                                                         CheckedChanged="RadioButton_CheckedChanged"></RadioButton>
+                                        </VerticalStackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+
+                        <Button HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                Grid.Row="1"
+                                Padding="48,12"
+                                Margin="16"
+                                FontSize="15"
+                                FontFamily="Inter-Bold"
+                                Text="Закончить тест"
+                                BackgroundColor="#FF5D81"
+                                x:Name="endTest"
+                                Clicked="endTest_Clicked">
+                            <Button.Shadow>
+                                <Shadow Opacity="0.4"
+                                        Radius="5"></Shadow>
+                            </Button.Shadow>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_MindWave.Views.ContentPages.ProfilePage"
+             Title="ProfilePage"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid Margin="24">
+            <VerticalStackLayout Spacing="8">
+                <Label FontSize="32"
+                       FontFamily="Inter-SemiBold"
+                       Text="Профиль"
+                       TextColor="White"
+                       Margin="0,0,0,16">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                    </Label.Shadow>
+                </Label>
+                <HorizontalStackLayout Spacing="4">
+                    <Label Text="Ваше имя:"
+                           TextColor="White"
+                           FontSize="24"
+                           FontFamily="Inter-Medium">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                    <Label x:Name="nameLabel"
+                           TextColor="White"
+                           FontSize="24"
+                           FontFamily="Inter-Medium">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="4">
+                    <Label Text="Телефон:"
+                           TextColor="White"
+                           FontSize="24"
+                           FontFamily="Inter-Medium">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                    <Label x:Name="phoneLabel"
+                           TextColor="White"
+                           FontSize="24"
+                           FontFamily="Inter-Medium">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <Button VerticalOptions="Start"
+                    HorizontalOptions="End"
+                    Text="Выход"
+                    FontSize="16"
+                    FontFamily="Inter-SemiBold"
+                    BackgroundColor="#FF5D81"
+                    x:Name="extiButton"
+                    Clicked="extiButton_Clicked">
+                <Button.Shadow>
+                    <Shadow Opacity="0.2"
+                            Radius="5"></Shadow>
+                </Button.Shadow>
+            </Button>
+        </Grid>
+    </Grid>
+</ContentPage>

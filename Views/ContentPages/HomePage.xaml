@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_MindWave.Views.ContentPages.HomePage"
+             Title="HomePage"
+             Shell.NavBarIsVisible="False"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout HorizontalOptions="Start"
+                                   Margin="16">
+                <Label Text="Mind"
+                       TextColor="#FF5D81"
+                       FontSize="28"
+                       FontFamily="Inter-Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Wave"
+                       TextColor="#008CFF"
+                       FontSize="28"
+                       FontFamily="Inter-Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+            <Border Margin="16"
+                    Grid.Row="1"
+                    StrokeShape="RoundRectangle 20"
+                    StrokeThickness="0"
+                    BackgroundColor="#BFFFFFFF">
+                <Grid Margin="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="16"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="16"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Тесты на тревожность"
+                               TextColor="#FF5D81"
+                               FontSize="18"
+                               FontFamily="Inter-Bold">
+                            <Label.Shadow>
+                                <Shadow Opacity="0.2"
+                                        Radius="5"></Shadow>
+                            </Label.Shadow>
+                        </Label>
+                        <CollectionView x:Name="topCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"
+                                                   ItemSpacing="8"></LinearItemsLayout>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border HeightRequest="172"
+                                            WidthRequest="114"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 16"
+                                            AutomationId="{Binding TestId}">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="topCollectionBorder"
+                                                                  Tapped="topCollectionBorder_Tapped"></TapGestureRecognizer>
+                                        </Border.GestureRecognizers>
+                                        <Grid>
+                                            <Image Source="{Binding CoverImage}"
+                                                   Aspect="AspectFill"></Image>
+                                            <Grid>
+                                                <Border HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        BackgroundColor="#40000000">
+                                                    <Label Text="{Binding Name}"
+                                                           TextColor="White"
+                                                           HorizontalOptions="Center"
+                                                           Margin="8,12"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="14"
+                                                           FontFamily="Inter-Medium">
+                                                        <Label.Shadow>
+                                                            <Shadow Opacity="1"
+                                                                    Radius="7"></Shadow>
+                                                        </Label.Shadow>
+                                                    </Label>
+                                                </Border>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                    <ActivityIndicator HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="48"
+                                       WidthRequest="48"
+                                       Color="White"
+                                       x:Name="topLoadingIndicator"></ActivityIndicator>
+
+                    <VerticalStackLayout Grid.Row="2"
+                                         Spacing="6">
+                        <Label Text="Тесты на агрессию"
+                               TextColor="#FF5D81"
+                               FontSize="18"
+                               FontFamily="Inter-Bold">
+                            <Label.Shadow>
+                                <Shadow Opacity="0.2"
+                                        Radius="5"></Shadow>
+                            </Label.Shadow>
+                        </Label>
+                        <CollectionView x:Name="centerCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"
+                                                   ItemSpacing="8"></LinearItemsLayout>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border HeightRequest="172"
+                                            WidthRequest="114"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 16"
+                                            AutomationId="{Binding TestId}">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="centerCollectionBorder"
+                                                                  Tapped="centerCollectionBorder_Tapped"></TapGestureRecognizer>
+                                        </Border.GestureRecognizers>
+                                        <Grid>
+                                            <Image Source="{Binding CoverImage}"
+                                                   Aspect="AspectFill"></Image>
+                                            <Grid>
+                                                <Border HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        BackgroundColor="#40000000">
+                                                    <Label Text="{Binding Name}"
+                                                           TextColor="White"
+                                                           HorizontalOptions="Center"
+                                                           Margin="8,12"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="14"
+                                                           FontFamily="Inter-Medium">
+                                                        <Label.Shadow>
+                                                            <Shadow Opacity="1"
+                                                                    Radius="7"></Shadow>
+                                                        </Label.Shadow>
+                                                    </Label>
+                                                </Border>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                    <ActivityIndicator HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="48"
+                                       WidthRequest="48"
+                                       Color="White"
+                                       x:Name="centerLoadingIndicator"></ActivityIndicator>
+
+                    <VerticalStackLayout Grid.Row="4"
+                                         Spacing="6">
+                        <Label Text="Тесты на СДВГ"
+                               TextColor="#FF5D81"
+                               FontSize="18"
+                               FontFamily="Inter-Bold">
+                            <Label.Shadow>
+                                <Shadow Opacity="0.2"
+                                        Radius="5"></Shadow>
+                            </Label.Shadow>
+                        </Label>
+                        <CollectionView x:Name="bottomCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"
+                                                   ItemSpacing="8"></LinearItemsLayout>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border HeightRequest="172"
+                                            WidthRequest="114"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 16"
+                                            AutomationId="{Binding TestId}">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="bottomCollectionBorder"
+                                                                  Tapped="bottomCollectionBorder_Tapped"></TapGestureRecognizer>
+                                        </Border.GestureRecognizers>
+                                        <Grid>
+                                            <Image Source="{Binding CoverImage}"
+                                                   Aspect="AspectFill"></Image>
+                                            <Grid>
+                                                <Border HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        BackgroundColor="#40000000">
+                                                    <Label Text="{Binding Name}"
+                                                           TextColor="White"
+                                                           HorizontalOptions="Center"
+                                                           Margin="8,12"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="14"
+                                                           FontFamily="Inter-Medium">
+                                                        <Label.Shadow>
+                                                            <Shadow Opacity="1"
+                                                                    Radius="7"></Shadow>
+                                                        </Label.Shadow>
+                                                    </Label>
+                                                </Border>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                    <ActivityIndicator HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="48"
+                                       WidthRequest="48"
+                                       Color="White"
+                                       x:Name="bottomLoadingIndicator"></ActivityIndicator>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

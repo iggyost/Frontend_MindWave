@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_MindWave.Views.ContentPages.WelcomePage"
+             Title="WelcomePage"
+             Loaded="ContentPage_Loaded"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <VerticalStackLayout Grid.Row="1"
+                                 x:Name="welcomeStackLayout">
+                <Label Text="Добро пожаловать в"
+                       TextColor="White"
+                       FontSize="28"
+                       FontFamily="Inter-SemiBold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                    </Label.Shadow>
+                </Label>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Mind"
+                           TextColor="#FF5D81"
+                           FontSize="28"
+                           FontFamily="Inter-Bold">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                    <Label Text="Wave"
+                           TextColor="#008CFF"
+                           FontSize="28"
+                           FontFamily="Inter-Bold">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                Radius="5"></Shadow>
+                        </Label.Shadow>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

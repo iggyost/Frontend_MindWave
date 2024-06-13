@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="Frontend_MindWave.Views.ContentPages.ResultsPage"
+             Title="ResultsPage"
+             Shell.NavBarIsVisible="False"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background.jpg"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Border Margin="16,64"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#BFFFFFFF">
+                <Grid Margin="16">
+                    <ActivityIndicator x:Name="loadingIndicator"
+                                       HeightRequest="48"
+                                       WidthRequest="48"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Color="White"></ActivityIndicator>
+                    <ScrollView>
+                        <VerticalStackLayout Spacing="16">
+                            <micro:ChartView x:Name="mainChart"
+                                         HeightRequest="224"
+                                         WidthRequest="320"></micro:ChartView>
+                            <VerticalStackLayout>
+                                <Label Text="Депрессия"
+                                   TextColor="#FF5D81"
+                                   FontSize="21"
+                                   FontFamily="Inter-Bold"></Label>
+                                <Label x:Name="levelDepressionLabel" 
+                                   TextColor="#FF5D81"
+                                   FontFamily="Inter-SemiBold"></Label>
+                                <ProgressBar x:Name="depressionBar"
+                                         ProgressColor="#FF5D81"></ProgressBar>
+                                <Label Text="Нет рекомендаций"
+                                       x:Name="depressionRecs"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="#FF5D81"></Label>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="Тревожность"
+                                   TextColor="#FF5D81"
+                                   FontSize="21"
+                                   FontFamily="Inter-Bold"></Label>
+                                <Label x:Name="levelAnxietyLabel" 
+                                   TextColor="#FF5D81"
+                                   FontFamily="Inter-SemiBold"></Label>
+                                <ProgressBar x:Name="anxietyBar"
+                                         ProgressColor="#FF5D81"></ProgressBar>
+                                <Label Text="Нет рекомендаций"
+                                       x:Name="anxietyRecs"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="#FF5D81"></Label>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="Агрессия"
+                                   TextColor="#FF5D81"
+                                   FontSize="21"
+                                   FontFamily="Inter-Bold"></Label>
+                                <Label x:Name="levelAgressionLabel" 
+                                   TextColor="#FF5D81"
+                                   FontFamily="Inter-SemiBold"></Label>
+                                <ProgressBar x:Name="agressionBar"
+                                         ProgressColor="#FF5D81"></ProgressBar>
+                                <Label Text="Нет рекомендаций"
+                                       x:Name="agressionRecs"
+                                   LineBreakMode="WordWrap"
+                                   TextColor="#FF5D81"></Label>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>
